@@ -12,11 +12,25 @@ import { MatListModule } from '@angular/material/list';
 import { RouterModule, Routes }   from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HomeComponent } from './pages/home/home.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { BibliotecaComponent } from './pages/biblioteca/biblioteca.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {NgFor, DatePipe} from '@angular/common';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { StlModelViewerModule } from 'angular-stl-model-viewer';
+import { PromocoesComponent } from './pages/promocoes/promocoes.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuLateralComponent,
+    HomeComponent,
+    BibliotecaComponent,
+    PromocoesComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +44,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     RouterModule,
     MatExpansionModule,
     MatTooltipModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    DatePipe,
+    NgFor,
+    MatGridListModule,
+    StlModelViewerModule,
+    MatButtonToggleModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

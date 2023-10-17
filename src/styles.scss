@@ -1,4 +1,119 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// html,
+// body {
+//     height: 100%;
+// }
+
+// body {
+//     margin: 0;
+//     font-family: Roboto, "Helvetica Neue", sans-serif;
+// }
+
+// body {
+//     background: rgb(2, 0, 36);
+//     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(99, 154, 198, 1) 35%, rgba(77, 107, 149, 1) 78%);
+// }
+
+.mat-drawer-container {
+  // background: none;
+  // background: rgb(2, 0, 36);
+  // background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(99, 154, 198, 1) 35%, rgba(77, 107, 149, 1) 78%);
+  background-color: #6617cb;
+  background-image: linear-gradient(315deg, #6617cb 0%, #cb218e 74%);
+}
+
+.mat-toolbar,
+.mat-toolbar-single-row {
+  background-color: rgba(0, 0, 0, 0.041) !important;
+}
+
+.mat-drawer {
+  background-color: rgba(0, 0, 0, 0.041) !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #6617cb;
+  background-image: linear-gradient(315deg, #6617cb 0%, #cb218e 74%);
+}
+
+.navbar-color {
+  background-color: #494d50;
+  color: white;
+}
+
+.router-link-active {
+  background-color: #414548;
+}
+
+.no-border {
+  border-radius: 0px;
+}
+
+.toolbar-color {
+  background-color: #616466;
+  color: white;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.v-center {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.txt-bold {
+  font-weight: bold;
+}
+
+.selected {
+  background-color: gainsboro;
+}
+
+.mat-drawer-inner-container {
+  background-color: #0000002e;
+  border-right: 2px solid #ffffff6b;
+}
+
+.parent, .mat-mdc-list-item-unscoped-content {
+  display: flex;
+  align-items: center;
+}
+
+.mat-sidenav-container {
+  height: 100%;
+}
+
+.example-sidenav-content {
+  padding: 2rem;;
+}
