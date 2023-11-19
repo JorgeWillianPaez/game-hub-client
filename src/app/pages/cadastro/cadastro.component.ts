@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Usuario } from 'src/app/models/Usuario';
 import { Observer } from 'rxjs';
 import { UsuarioService } from 'src/app/usuario.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-cadastro',

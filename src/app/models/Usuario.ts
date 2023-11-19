@@ -2,8 +2,8 @@ export class Usuario {
   id?: number;
   nomeUsuario?: string;
   email?: string;
-  dataNascimento?: Date;
+  dataNascimento?: string;
   senha?: string;
-  status?: string;
-  usuarioAtivado?: boolean;
+  status?: string = 'offline';
+  usuarioAtivado?: boolean = true;
 }
