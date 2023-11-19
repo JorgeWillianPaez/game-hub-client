@@ -54,12 +54,10 @@
 html,
 body {
   height: 100%;
-  overflow: hidden;
-}
-
-body {
+  overflow-x: hidden;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("./assets/background/background-login-cadastro.jpg");
 }
 
 .navbar-color {

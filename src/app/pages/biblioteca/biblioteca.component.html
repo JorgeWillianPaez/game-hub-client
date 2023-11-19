@@ -1,55 +1,13 @@
-<div id="biblioteca-page">
-  <div class="div-botoes">
-    <mat-button-toggle-group
-      name="categorias"
-      aria-label="Categorias"
-      [(ngModel)]="categoriasAtivas"
-    >
-      <mat-button-toggle class="btn-categoria mx-2" value="nes">
-        <div class="btn-svg row m-0 justify-content-center">
-          <img [src]="['./assets/3d_models/nes.svg']" />
-        </div>
-        <div class="row" style="height: 32px"></div>
-        <a class="row texto-categoria m-0 justify-content-center">NES</a>
-      </mat-button-toggle>
-      <mat-button-toggle class="btn-categoria mx-2" value="snes">
-        <div class="btn-svg row m-0 justify-content-center">
-          <img [src]="['./assets/3d_models/snes.svg']" />
-        </div>
-        <div class="row" style="height: 32px"></div>
-        <a class="row texto-categoria m-0 justify-content-center"
-          >Super Nintendo</a
-        >
-      </mat-button-toggle>
-      <mat-button-toggle class="btn-categoria mx-2" value="steam">
-        <div class="btn-svg row m-0 justify-content-center">
-          <img
-            class="btn-svg row m-0 justify-content-center"
-            [src]="['./assets/3d_models/steam.svg']"
-          />
-        </div>
-        <div class="row" style="height: 32px"></div>
-        <a class="row texto-categoria m-0 justify-content-center">Steam</a>
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-  </div>
-  <div style="height: 32px"></div>
-  <div>
-    <ul>
-      <li *ngFor="let item of itensFiltrados">
-        <div
-          class="card-jogos row justify-content-between align-items-center m-0"
-        >
-          <div class="col-4 card-image">
-            <img
-              class="btn-svg row m-0 justify-content-center"
-              [src]="[item.imagem]"
-            />
-          </div>
-          <div class="col-8">{{ item.nome }} - {{ item.categoria }}</div>
-        </div>
-        <br />
-      </li>
-    </ul>
-  </div>
+<app-menu-lateral></app-menu-lateral>
+<div class="main-container">
+  <h1>Minha biblioteca</h1>
+  <mat-list class="biblioteca">
+    <mat-list-item *ngFor="let jogo of jogos">
+      <h3 matLine>{{ jogo.nome }}</h3>
+      <p matLine>
+        <span> {{ jogo.descricao }} </span>
+        <span class="demo-2"> -- {{ jogo.nome }} </span>
+      </p>
+    </mat-list-item>
+  </mat-list>
 </div>

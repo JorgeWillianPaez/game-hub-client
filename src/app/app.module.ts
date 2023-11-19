@@ -33,6 +33,11 @@ import { CarouselModule } from 'primeng/carousel';
 import { DialogModule } from 'primeng/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
+import { SidebarModule } from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CategoriaComponent } from './pages/categoria/categoria.component';
+import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     PromocoesComponent,
     LoginComponent,
     CadastroComponent,
+    CategoriaComponent,
+    DesenvolvedoraComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,15 +71,18 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     StlModelViewerModule,
     MatButtonToggleModule,
-    FormsModule,
-    MatInputModule,
-    MatFormFieldModule,
     MatNativeDateModule,
     MatDatepickerModule,
     CarouselModule,
     DialogModule,
     MatRadioModule,
     HttpClientModule,
+    SidebarModule,
+    ButtonModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

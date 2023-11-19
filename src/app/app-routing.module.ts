@@ -7,6 +7,8 @@ import { PromocoesComponent } from './pages/promocoes/promocoes.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
+import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.component';
+import { CategoriaComponent } from './pages/categoria/categoria.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'promocoes', component: PromocoesComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'desenvolvedora', component: DesenvolvedoraComponent },
+  { path: 'categoria', component: CategoriaComponent },
 ];
 
 @NgModule({
