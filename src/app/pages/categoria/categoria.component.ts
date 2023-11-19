@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Categoria } from 'src/app/models/Categoria';
+import { Observer } from 'rxjs';
+import { CategoriaService } from 'src/app/categoria.service';
+
 
 @Component({
   selector: 'app-categoria',
@@ -6,5 +11,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./categoria.component.scss']
 })
 export class CategoriaComponent {
+  formulario: any;
+  constructor(private categoriaServise: CategoriaService) {}
+  ngOnInit(): void {
+    this.formulario = new FormGroup({
+      nome: new FormControl(null),
+      descricao: new FormControl(null),
+    });
+  }
 
+  cadastro() {
+    const categoria: Categoria = this.formulario.value;
+      const observer: Observer<Categoria> = {
+        next(_result): void {
+          alert('Categoria criada com sucesso.');
+        },
+        error(_error): void {
+          alert('Erro ao salvar!');
+        },
+        complete(): void {},
+      };
+      this.categoriaServise.cadastrar(categoria).subscribe(observer);
+  }
 }
