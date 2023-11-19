@@ -1,9 +1,6 @@
-<mat-sidenav-container class="example-container" hasBackdrop="false">
-  <mat-sidenav #sidenav mode="side" position="start">
-    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<mat-nav-list class="navbar position-fixed">
+  <a mat-list-item routerLink="/home">Home</a>
+  <!-- <a mat-list-item routerLink="/promocoes">Promoçoes</a>
+  <a mat-list-item routerLink="/noticias">Notícias</a> -->
+  <a mat-list-item routerLink="/biblioteca">Biblioteca</a>
+</mat-nav-list>

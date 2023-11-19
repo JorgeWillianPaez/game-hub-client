@@ -1,11 +1,43 @@
+<app-menu-lateral></app-menu-lateral>
 <div class="main-container">
-  <div class="card">
-    <h1 class="text-white">Mais jogados</h1>
+  <div class="card w-75 m-auto mt-3">
+    <h1 class="text-white text-center mt-3">Lançamentos</h1>
     <p-carousel
-      [value]="products"
-      [numVisible]="8"
+      [value]="lancamentos"
+      [numVisible]="2"
       [numScroll]="1"
       [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-product pTemplate="item">
+        <div
+          class="border-1 surface-border border-round m-2 text-center py-2 px-2"
+        >
+          <div class="mb-3">
+            <img
+              src="{{ product.image }}"
+              [alt]="product.name"
+              class="w-6 shadow-2 w-100"
+              style="cursor: pointer"
+              (click)="showDialog(product.id)"
+            />
+          </div>
+          <div>
+            <h4 class="mb-1 text-white">{{ product.nome }}</h4>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+
+  <div class="card w-75 m-auto mt-5">
+    <h1 class="text-white text-center mt-3">Todos os Jogos</h1>
+    <p-carousel
+      [value]="products"
+      [numVisible]="5"
+      [numScroll]="1"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
     >
       <ng-template let-product pTemplate="item">
         <div
@@ -36,7 +68,7 @@
     [resizable]="false"
   >
     <img
-      style="width: 900px; margin: 0 auto"
+      style="width: 100%; margin: 0 auto"
       src="{{ currentGame.image }}"
       alt="{{ currentGame.nome }}"
       class="mb-4"
