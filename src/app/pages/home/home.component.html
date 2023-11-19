@@ -1,372 +1,51 @@
-<!-- <div id="home-component">
-  <div><a>Menu</a></div>
-  <div class="carousel-background"></div>
-  <div class="div-carousel px-4 row">
-    <div class="row text-lancamentos">
-      <a>Lançamentos</a>
-      <mat-divider></mat-divider>
-    </div>
-    <div id="carouselExampleCaptions" class="carousel slide">
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="./assets/spider-man/capa_spider_man.jpg"
-            class="d-block w-100"
-            alt="..."
-          />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Spider-man</h5>
-            <p>
-              Em Marvel's Spider-Man Remasterizado, os mundos de Peter Parker e
-              Spider-Man entram em conflito em uma história original cheia de
-              ação. Jogue como um Peter Parker experiente que combate as maiores
-              ameaças do crime e vilões icônicos na Nova York da Marvel.
-            </p>
+<div class="main-container">
+  <div class="card">
+    <h1 class="text-white">Mais jogados</h1>
+    <p-carousel
+      [value]="products"
+      [numVisible]="8"
+      [numScroll]="1"
+      [circular]="true"
+    >
+      <ng-template let-product pTemplate="item">
+        <div
+          class="border-1 surface-border border-round m-2 text-center py-2 px-2"
+        >
+          <div class="mb-3">
+            <img
+              src="{{ product.image }}"
+              [alt]="product.name"
+              class="w-6 shadow-2 w-100"
+              style="cursor: pointer"
+              (click)="showDialog(product.id)"
+            />
+          </div>
+          <div>
+            <h4 class="mb-1 text-white">{{ product.nome }}</h4>
           </div>
         </div>
-        <div class="carousel-item">
-          <img
-            src="./assets/phasmophobia/capa_phasmophobia.jpg"
-            class="d-block w-100"
-            alt="..."
-          />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Phasmophobia</h5>
-            <p>
-              Phasmophobia is a 4 player online co-op psychological horror.
-              Paranormal activity is on the rise and it’s up to you and your
-              team to use all the ghost-hunting equipment at your disposal in
-              order to gather as much evidence as you can.
-            </p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img
-            src="./assets/starfield/capa_starfield.jpg"
-            class="d-block w-100"
-            alt="..."
-          />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Starfield</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <div style="height: 40px;"></div>
-    <div class="row text-lancamentos">
-        <a>Sugestões</a>
-        <mat-divider></mat-divider>
-      </div>
+      </ng-template>
+    </p-carousel>
   </div>
-</div> -->
-
-<div>
-	<!-- <mat-toolbar class="toolbar-color py-5 mb-4"> -->
-	<!-- <span class="center">PAGE_1 WORKS!</span> -->
-	<!-- </mat-toolbar> -->
-	<div class="container" id="home-component">
-		<div class="div-carousel px-4 row">
-			<div class="row text-lancamentos">
-				<a>Lançamentos</a>
-				<div style="height: 32px"></div>
-				<mat-divider></mat-divider>
-			</div>
-			<div style="height: 32px"></div>
-			<div id="carouselExampleCaptions" class="carousel slide">
-				<div class="carousel-indicators">
-					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-						aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-						aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-						aria-label="Slide 3"></button>
-				</div>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img src="./assets/spider-man/capa_spider_man.jpg" class="d-block w-100" alt="..." />
-						<div class="carousel-caption d-none d-md-block">
-							<h5>Spider-man</h5>
-							<p>
-								Em Marvel's Spider-Man Remasterizado, os mundos de Peter Parker
-								e Spider-Man entram em conflito em uma história original cheia
-								de ação. Jogue como um Peter Parker experiente que combate as
-								maiores ameaças do crime e vilões icônicos na Nova York da
-								Marvel.
-							</p>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<img src="./assets/phasmophobia/capa_phasmophobia.jpg" class="d-block w-100" alt="..." />
-						<div class="carousel-caption d-none d-md-block">
-							<h5>Phasmophobia</h5>
-							<p>
-								Phasmophobia is a 4 player online co-op psychological horror.
-								Paranormal activity is on the rise and it’s up to you and your
-								team to use all the ghost-hunting equipment at your disposal in
-								order to gather as much evidence as you can.
-							</p>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<img src="./assets/starfield/capa_starfield.jpg" class="d-block w-100" alt="..." />
-						<div class="carousel-caption d-none d-md-block">
-							<h5>Starfield</h5>
-							<p>
-								Some representative placeholder content for the third slide.
-							</p>
-						</div>
-					</div>
-				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-					data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-					data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
-			</div>
-		</div>
-		<div style="height: 40px"></div>
-		<div class="row text-lancamentos">
-			<a>Sugestões</a>
-			<div style="height: 32px"></div>
-			<mat-divider></mat-divider>
-			<div style="height: 32px"></div>
-			<div class="sugestoes-card-content">
-				<div id="carouselExampleCaptions2" class="carousel slide">
-					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active"
-							aria-current="true" aria-label="Slide 1"></button>
-						<button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1"
-							aria-label="Slide 2"></button>
-						<button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="2"
-							aria-label="Slide 3"></button>
-					</div>
-					<div class="carousel-inner">
-						<mat-card class="carousel-item active">
-							<img mat-card-image src="./assets/the_witcher_III/capa_the_witcher_III.jpg" alt="Photo of a Shiba Inu" />
-							<mat-card-header>
-								<mat-card-title>The Witcher 3: Wild Hunt</mat-card-title>
-							</mat-card-header>
-							<mat-card-content>
-								<div style="height: 32px"></div>
-								<p>
-									The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação
-									em mundo aberto desenvolvido pela CD Projekt RED.
-								</p>
-							</mat-card-content>
-							<mat-card-actions>
-								<button mat-button class="card-button">
-									<mat-icon class="material-symbols-rounded">shopping_cart</mat-icon>
-									<a>Comprar</a>
-								</button>
-								<button mat-button class="card-button">
-									<mat-icon class="material-symbols-rounded">arrow_right_alt</mat-icon>
-									<a>Comprar</a>
-								</button>
-							</mat-card-actions>
-						</mat-card>
-
-						<mat-card class="carousel-item">
-							<img mat-card-image src="./assets/the_witcher_III/capa_the_witcher_III.jpg" alt="Photo of a Shiba Inu" />
-							<mat-card-header>
-								<mat-card-title>The Witcher 3: Wild Hunt</mat-card-title>
-							</mat-card-header>
-							<mat-card-content>
-								<div style="height: 32px"></div>
-								<p>
-									The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação
-									em mundo aberto desenvolvido pela CD Projekt RED.
-								</p>
-							</mat-card-content>
-							<mat-card-actions>
-								<button mat-button class="card-button">
-									<mat-icon class="material-symbols-rounded">shopping_cart</mat-icon>
-									<a>Comprar</a>
-								</button>
-								<button mat-button class="card-button">
-									<mat-icon class="material-symbols-rounded">arrow_right_alt</mat-icon>
-									<a>Comprar</a>
-								</button>
-							</mat-card-actions>
-						</mat-card>
-
-						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions2"
-							data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions2"
-							data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Next</span>
-						</button>
-					</div>
-					<!-- <mat-card class="sugestoes-card mx-2 col">
-						<img mat-card-image src="./assets/the_witcher_III/capa_the_witcher_III.jpg" alt="Photo of a Shiba Inu" />
-						<mat-card-header>
-							<mat-card-title>The Witcher 3: Wild Hunt</mat-card-title>
-						</mat-card-header>
-						<mat-card-content>
-							<div style="height: 32px"></div>
-							<p>
-								The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação em
-								mundo aberto desenvolvido pela CD Projekt RED.
-							</p>
-						</mat-card-content>
-						<mat-card-actions>
-							<button mat-button class="card-button">
-								<mat-icon class="material-symbols-rounded">shopping_cart</mat-icon>
-								<a>Comprar</a>
-							</button>
-							<button mat-button class="card-button">
-								<mat-icon class="material-symbols-rounded">arrow_right_alt</mat-icon>
-								<a>Comprar</a>
-							</button>
-						</mat-card-actions>
-					</mat-card>
-					<mat-card class="sugestoes-card mx-2 col">
-						<img mat-card-image src="./assets/the_witcher_III/capa_the_witcher_III.jpg" alt="Photo of a Shiba Inu" />
-						<mat-card-header>
-							<mat-card-title>The Witcher 3: Wild Hunt</mat-card-title>
-						</mat-card-header>
-						<mat-card-content>
-							<div style="height: 32px"></div>
-							<p>
-								The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação em
-								mundo aberto desenvolvido pela CD Projekt RED.
-							</p>
-						</mat-card-content>
-						<mat-card-actions>
-							<button mat-button class="card-button">
-								<mat-icon class="material-symbols-rounded">shopping_cart</mat-icon>
-								<a>Comprar</a>
-							</button>
-							<button mat-button class="card-button">
-								<mat-icon class="material-symbols-rounded">arrow_right_alt</mat-icon>
-								<a>Comprar</a>
-							</button>
-						</mat-card-actions>
-					</mat-card>
-					<mat-card class="sugestoes-card mx-2 col">
-						<img mat-card-image src="./assets/the_witcher_III/capa_the_witcher_III.jpg" alt="Photo of a Shiba Inu" />
-						<mat-card-header>
-							<mat-card-title>The Witcher 3: Wild Hunt</mat-card-title>
-						</mat-card-header>
-						<mat-card-content>
-							<div style="height: 32px"></div>
-							<p>
-								The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação em
-								mundo aberto desenvolvido pela CD Projekt RED.
-							</p>
-						</mat-card-content>
-						<mat-card-actions>
-							<button mat-button class="card-button">
-								<mat-icon class="material-symbols-rounded">shopping_cart</mat-icon>
-								<a>Comprar</a>
-							</button>
-							<button mat-button class="card-button">
-								<mat-icon class="material-symbols-rounded">arrow_right_alt</mat-icon>
-								<a>Comprar</a>
-							</button>
-						</mat-card-actions>
-					</mat-card>
-					<mat-card class="sugestoes-card mx-2 col">
-						<img mat-card-image src="./assets/the_witcher_III/capa_the_witcher_III.jpg" alt="Photo of a Shiba Inu" />
-						<mat-card-header>
-							<mat-card-title>The Witcher 3: Wild Hunt</mat-card-title>
-						</mat-card-header>
-						<mat-card-content>
-							<div style="height: 32px"></div>
-							<p>
-								The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação em
-								mundo aberto desenvolvido pela CD Projekt RED.
-							</p>
-						</mat-card-content>
-						<mat-card-actions>
-							<button mat-button class="card-button">
-								<mat-icon class="material-symbols-rounded">shopping_cart</mat-icon>
-								<a>Comprar</a>
-							</button>
-							<button mat-button class="card-button">
-								<mat-icon class="material-symbols-rounded">arrow_right_alt</mat-icon>
-								<a>Comprar</a>
-							</button>
-						</mat-card-actions>
-					</mat-card>
-					<mat-card class="sugestoes-card mx-2 col">
-						<img mat-card-image src="./assets/the_witcher_III/capa_the_witcher_III.jpg" alt="Photo of a Shiba Inu" />
-						<mat-card-header>
-							<mat-card-title>The Witcher 3: Wild Hunt</mat-card-title>							
-						</mat-card-header>
-						<mat-card-content>
-							<div style="height: 32px"></div>
-							<p>
-								The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação em
-								mundo aberto desenvolvido pela CD Projekt RED.
-							</p>
-						</mat-card-content>
-						<mat-card-actions>
-							<button mat-button class="card-button">
-								<mat-icon class="material-symbols-rounded">shopping_cart</mat-icon>
-								<a>Comprar</a>
-							</button>
-							<button mat-button class="card-button">
-								<mat-icon class="material-symbols-rounded">arrow_right_alt</mat-icon>
-								<a>Comprar</a>
-							</button>
-						</mat-card-actions>
-					</mat-card> -->
-				</div>
-				<div style="height: 32px"></div>
-			</div>
-			<div style="height: 100px">
-				<a>Footer</a>
-			</div>
-		</div>
-	</div>
+  <p-dialog
+    header="{{ currentGame.nome }}"
+    [(visible)]="visible"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <img
+      style="width: 900px; margin: 0 auto"
+      src="{{ currentGame.image }}"
+      alt="{{ currentGame.nome }}"
+      class="mb-4"
+    />
+    <p class="m-0">
+      {{ currentGame.descricao }}
+    </p>
+    <button class="mt-3" mat-raised-button color="primary">
+      Adicionar na biblioteca
+    </button>
+  </p-dialog>
 </div>
