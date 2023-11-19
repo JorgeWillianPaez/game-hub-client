@@ -9,20 +9,30 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { RouterModule, Routes }   from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RouterModule, Routes } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeComponent } from './pages/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { BibliotecaComponent } from './pages/biblioteca/biblioteca.component';
-import {MatDividerModule} from '@angular/material/divider';
-import {NgFor, DatePipe} from '@angular/common';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
+import { NgFor, DatePipe, CommonModule } from '@angular/common';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { StlModelViewerModule } from 'angular-stl-model-viewer';
 import { PromocoesComponent } from './pages/promocoes/promocoes.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { CarouselModule } from 'primeng/carousel';
+import { DialogModule } from 'primeng/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +41,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     BibliotecaComponent,
     PromocoesComponent,
+    LoginComponent,
+    CadastroComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,8 +65,16 @@ import { FormsModule } from '@angular/forms';
     StlModelViewerModule,
     MatButtonToggleModule,
     FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    CarouselModule,
+    DialogModule,
+    MatRadioModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
