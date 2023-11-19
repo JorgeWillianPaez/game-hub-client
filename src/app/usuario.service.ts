@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class UsuarioService {
-  apiUrl = 'http://localhost:5000/Usuario';
+  apiUrl = 'http://localhost:5000/gamehubapi/Usuario';
   constructor(private http: HttpClient) {}
   listar(): Observable<Usuario[]> {
     const url = `${this.apiUrl}`;
