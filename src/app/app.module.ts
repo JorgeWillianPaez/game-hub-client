@@ -36,6 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CategoriaComponent } from './pages/categoria/categoria.component';
+import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     PromocoesComponent,
     LoginComponent,
     CadastroComponent,
+    CategoriaComponent,
+    DesenvolvedoraComponent,
   ],
   imports: [
     BrowserModule,
