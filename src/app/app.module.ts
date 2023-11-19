@@ -23,7 +23,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { StlModelViewerModule } from 'angular-stl-model-viewer';
 import { PromocoesComponent } from './pages/promocoes/promocoes.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { MatInputModule } from '@angular/material/input';
@@ -83,6 +83,7 @@ import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.c
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
