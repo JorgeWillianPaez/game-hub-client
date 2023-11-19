@@ -2,10 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\components",
-    "\\src\\app\\components\\menu-lateral"
+    "\\src\\app"
   ],
-  "SelectedNode": "\\src\\app\\components\\menu-lateral\\menu-lateral.component.html",
   "PreviewInSolutionExplorer": false
 }

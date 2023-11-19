@@ -1,0 +1,33 @@
+.main-container {
+    background-image: url("../../../assets/background/background-login-cadastro.jpg");
+    width: 100vw;
+    height: 100vh;
+  }
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content form {
+    display: flex;
+    flex-direction: column;
+    background-color: #f07124;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-imput {
+    width: 400px;
+}
+
+.form-title {
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+    margin: top 40px;
+    margin-bottom: 40px;
+}
