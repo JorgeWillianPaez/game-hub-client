@@ -38,6 +38,7 @@ import { ButtonModule } from 'primeng/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.component';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.c
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    ToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
