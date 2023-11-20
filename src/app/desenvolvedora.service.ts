@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DesenvolvedoraService {
-  apiUrl = 'http://localhost:5000/Categoria';
+  apiUrl = 'http://localhost:5000/gamehubapi/Desenvolvedora';
   constructor(private http: HttpClient) {}
   listar(): Observable<Desenvolvedora[]> {
     const url = `${this.apiUrl}`;

@@ -10,17 +10,32 @@ import { DesenvolvedoraService } from 'src/app/desenvolvedora.service';
   styleUrls: ['./desenvolvedora.component.scss']
 })
 export class DesenvolvedoraComponent {
-  formulario: any;
+  formCadastrar: any;
+  formAlterar: any;
+  formExcluir: any;
+  formFiltrar: any;
+  desenvolvedoras: Desenvolvedora[] = [];
   constructor(private desenvolvedoraService: DesenvolvedoraService) {}
   ngOnInit(): void {
-    this.formulario = new FormGroup({
+    this.formCadastrar = new FormGroup({
       nome: new FormControl(null),
       porte: new FormControl(null),
     });
+    this.formAlterar = new FormGroup({
+      selectDesenvolvedora: new FormControl(null),
+      nome: new FormControl(null),
+      porte: new FormControl(null),
+    });
+    this.formExcluir = new FormGroup({
+      selectDesenvolvedora: new FormControl(null),
+    });
+    this.formFiltrar = new FormGroup({
+    });
+    this.listar();
   }
 
   cadastro() {
-    const desenvolvedora: Desenvolvedora = this.formulario.value;
+    const desenvolvedora: Desenvolvedora = this.formCadastrar.value;
     const observer: Observer<Desenvolvedora> = {
       next(_result): void {
         alert('Desenvolvedora criada com sucesso.');
@@ -31,5 +46,9 @@ export class DesenvolvedoraComponent {
       complete(): void {},
     };
     this.desenvolvedoraService.cadastrar(desenvolvedora).subscribe(observer)
+  }
+
+  listar(): void{
+    this.desenvolvedoraService.listar().subscribe((res)=>{console.log(res)})
   }
 }

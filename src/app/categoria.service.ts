@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CategoriaService {
-  apiUrl = 'http://localhost:5000/Categoria';
+  apiUrl = 'http://localhost:5000/gamehubapi/Categoria';
   constructor(private http: HttpClient) {}
   listar(): Observable<Categoria[]> {
     const url = `${this.apiUrl}`;

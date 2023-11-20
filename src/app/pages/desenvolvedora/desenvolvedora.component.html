@@ -1,8 +1,8 @@
 <app-menu-lateral></app-menu-lateral>
 <div class="main-container">
     <div class="content">
-        <form [formGroup]="formulario" (ngSubmit)="cadastro()">
-            <h1 class="form-title">Game HUB</h1>
+        <form [formGroup]="formCadastrar" (ngSubmit)="cadastro()">
+            <h1 class="form-title">Cadastrar</h1>
             <mat-form-field class="form-input">
                 <mat-label>Nome desenvolvedora</mat-label>
                 <input matInput formControlName="nome" />
@@ -11,7 +11,39 @@
                 <mat-label>Porte</mat-label>
                 <input matInput formControlName="porte" />
             </mat-form-field>
-            <button type="submit" mat-raised-button color="primary">Cadastrar desenvolvedora</button>
+            <button type="submit" mat-raised-button color="primary">Confirmar</button>
+        </form>
+        <form [formGroup]="formAlterar" (ngSubmit)="cadastro()">
+            <h1 class="form-title">Alterar</h1>
+            <mat-form-field class="form-input">
+                <mat-label>Selecione a desenvolvedora</mat-label>
+                <select formControlName="selectDesenvolvedora"></select>
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <mat-label>Nome desenvolvedora</mat-label>
+                <input matInput formControlName="nome" />
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <mat-label>Porte</mat-label>
+                <input matInput formControlName="porte" />
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary">Confirmar</button>
+        </form>
+        <form [formGroup]="formExcluir" (ngSubmit)="cadastro()">
+            <h1 class="form-title">Excluir</h1>
+            <mat-form-field class="form-input">
+                <mat-label>Selecione a desenvolvedora</mat-label>
+                <select formControlName="selectDesenvolvedora"></select>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary">Confirmar</button>
+        </form>
+        <form [formGroup]="formFiltrar" (ngSubmit)="cadastro()">
+            <h1 class="form-title">Filtrar</h1>
+            <mat-form-field class="form-input">
+                <mat-label>Selecione a desenvolvedora</mat-label>
+                <select formControlName="selectDesenvolvedora"></select>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary">Confirmar</button>
         </form>
     </div>
 </div>
