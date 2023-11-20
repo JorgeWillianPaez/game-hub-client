@@ -12,7 +12,7 @@ import { CategoriaService } from 'src/app/categoria.service';
 })
 export class CategoriaComponent {
   formulario: any;
-  constructor(private categoriaServise: CategoriaService) {}
+  constructor(private categoriaService: CategoriaService) {}
   ngOnInit(): void {
     this.formulario = new FormGroup({
       nome: new FormControl(null),
@@ -31,6 +31,6 @@ export class CategoriaComponent {
         },
         complete(): void {},
       };
-      this.categoriaServise.cadastrar(categoria).subscribe(observer);
+      this.categoriaService.cadastrar(categoria).subscribe(observer);
   }
 }
