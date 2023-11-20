@@ -2,8 +2,12 @@
 <div class="main-container">
   <p-toast></p-toast>
   <div class="content">
-    <form [formGroup]="formulario" (ngSubmit)="cadastro()">
-      <h1 class="form-title">Game HUB</h1>
+    <form 
+      [formGroup]="formCadastrar"
+      (ngSubmit)="cadastro()"
+      class="d-flex flex-column align-items-center"
+    >
+      <h1 class="form-title">Cadastrar</h1>
       <mat-form-field class="form-imput">
         <mat-label>Nome da categoria</mat-label>
         <input matInput formControlName="nome" />
@@ -12,8 +16,86 @@
         <mat-label>Descrição</mat-label>
         <input matInput formControlName="descricao" />
       </mat-form-field>
-      <button type="submit" mat-raised-button color="primary">
-        Criar categoria
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="mt-3 w-100"
+      >
+        Confirmar
+      </button>
+    </form>
+    <form 
+      [formGroup]="formAlterar"
+      (ngSubmit)="alterar()"
+      class="d-flex flex-column align-items-center"
+    >
+      <h1 class="form-title">Alterar</h1>
+      <p-dropdown
+        formControlName="selectAlterar"
+        [options]="categorias"
+        optionLabel="nome"
+        matInput
+        class="mb-4"
+        placeholder="Selecione a categoria"
+      ></p-dropdown>
+      <mat-form-field class="form-imput">
+        <mat-label>Nome da categoria</mat-label>
+        <input matInput formControlName="nome" />
+      </mat-form-field>
+      <mat-form-field class="form-imput">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="descricao" />
+      </mat-form-field>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="mt-3 w-100"
+      >
+        Confirmar
+      </button>
+    </form>
+    <form 
+      [formGroup]="formBuscar"
+      (ngSubmit)="buscar()"
+      class="d-flex flex-column align-items-center"
+    >
+      <h1 class="form-title">Buscar</h1>
+      <mat-form-field class="form-imput">
+        <mat-label>ID da categoria</mat-label>
+        <input matInput formControlName="categiriaId" />
+      </mat-form-field>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="mt-3 w-100"
+      >
+        Confirmar
+      </button>
+    </form>
+    <form 
+      [formGroup]="formExcluir"
+      (ngSubmit)="excluir()"
+      class="d-flex flex-column align-items-center"
+    >
+      <h1 class="form-title">Excluir</h1>
+      <p-dropdown
+        formControlName="selectExcluir"
+        [options]="categorias"
+        optionLabel="nome"
+        matInput
+        class="mb-4"
+        placeholder="Selecione a categoria"
+      ></p-dropdown>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="mt-3 w-100"
+      >
+        Confirmar
       </button>
     </form>
   </div>
