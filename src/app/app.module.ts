@@ -41,6 +41,7 @@ import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.c
 import { ToastModule } from 'primeng/toast';
 import { MatOptionModule } from '@angular/material/core';
 import { DropdownModule } from 'primeng/dropdown';
+import { JogoComponent } from './pages/jogo/jogo.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { DropdownModule } from 'primeng/dropdown';
     CadastroComponent,
     CategoriaComponent,
     DesenvolvedoraComponent,
+    JogoComponent,
   ],
   imports: [
     BrowserModule,
