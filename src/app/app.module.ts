@@ -42,6 +42,7 @@ import { ToastModule } from 'primeng/toast';
 import { MatOptionModule } from '@angular/material/core';
 import { DropdownModule } from 'primeng/dropdown';
 import { JogoComponent } from './pages/jogo/jogo.component';
+import { NoticiasComponent } from './pages/noticias/noticias.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { JogoComponent } from './pages/jogo/jogo.component';
     CategoriaComponent,
     DesenvolvedoraComponent,
     JogoComponent,
+    NoticiasComponent,
   ],
   imports: [
     BrowserModule,

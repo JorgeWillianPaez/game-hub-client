@@ -10,6 +10,7 @@ import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.com
 import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { JogoComponent } from './pages/jogo/jogo.component';
+import { NoticiasComponent } from './pages/noticias/noticias.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'desenvolvedora', component: DesenvolvedoraComponent },
   { path: 'categoria', component: CategoriaComponent },
   { path: 'jogo', component: JogoComponent },
+  { path: 'noticias', component: NoticiasComponent },
 ];
 
 @NgModule({
