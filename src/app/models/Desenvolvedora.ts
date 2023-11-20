@@ -1,5 +1,5 @@
-export class Desenvolvedora{
-    id?: number;
-    nome?: string;
-    porte?: string;
+export class Desenvolvedora {
+  id?: number;
+  nome?: string;
+  porte?: string;
 }

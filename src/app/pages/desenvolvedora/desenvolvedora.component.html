@@ -1,49 +1,103 @@
 <app-menu-lateral></app-menu-lateral>
 <div class="main-container">
-    <div class="content">
-        <form [formGroup]="formCadastrar" (ngSubmit)="cadastro()">
-            <h1 class="form-title">Cadastrar</h1>
-            <mat-form-field class="form-input">
-                <mat-label>Nome desenvolvedora</mat-label>
-                <input matInput formControlName="nome" />
-            </mat-form-field>
-            <mat-form-field class="form-input">
-                <mat-label>Porte</mat-label>
-                <input matInput formControlName="porte" />
-            </mat-form-field>
-            <button type="submit" mat-raised-button color="primary">Confirmar</button>
-        </form>
-        <form [formGroup]="formAlterar" (ngSubmit)="cadastro()">
-            <h1 class="form-title">Alterar</h1>
-            <mat-form-field class="form-input">
-                <mat-label>Selecione a desenvolvedora</mat-label>
-                <select formControlName="selectDesenvolvedora"></select>
-            </mat-form-field>
-            <mat-form-field class="form-input">
-                <mat-label>Nome desenvolvedora</mat-label>
-                <input matInput formControlName="nome" />
-            </mat-form-field>
-            <mat-form-field class="form-input">
-                <mat-label>Porte</mat-label>
-                <input matInput formControlName="porte" />
-            </mat-form-field>
-            <button type="submit" mat-raised-button color="primary">Confirmar</button>
-        </form>
-        <form [formGroup]="formExcluir" (ngSubmit)="cadastro()">
-            <h1 class="form-title">Excluir</h1>
-            <mat-form-field class="form-input">
-                <mat-label>Selecione a desenvolvedora</mat-label>
-                <select formControlName="selectDesenvolvedora"></select>
-            </mat-form-field>
-            <button type="submit" mat-raised-button color="primary">Confirmar</button>
-        </form>
-        <form [formGroup]="formFiltrar" (ngSubmit)="cadastro()">
-            <h1 class="form-title">Filtrar</h1>
-            <mat-form-field class="form-input">
-                <mat-label>Selecione a desenvolvedora</mat-label>
-                <select formControlName="selectDesenvolvedora"></select>
-            </mat-form-field>
-            <button type="submit" mat-raised-button color="primary">Confirmar</button>
-        </form>
-    </div>
+  <p-toast></p-toast>
+  <div class="content">
+    <form
+      [formGroup]="formCadastrar"
+      (ngSubmit)="cadastro()"
+      class="d-flex flex-column align-items-center"
+    >
+      <h1 class="form-title">Cadastrar</h1>
+      <mat-form-field class="form-input">
+        <mat-label>Nome desenvolvedora</mat-label>
+        <input matInput formControlName="nome" />
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>Porte</mat-label>
+        <input matInput formControlName="porte" />
+      </mat-form-field>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="mt-3 w-100"
+      >
+        Confirmar
+      </button>
+    </form>
+
+    <form
+      [formGroup]="formAlterar"
+      (ngSubmit)="alterar()"
+      class="d-flex flex-column align-items-center"
+    >
+      <h1 class="form-title">Alterar</h1>
+      <p-dropdown
+        formControlName="selectAlterar"
+        [options]="desenvolvedoras"
+        optionLabel="nome"
+        matInput
+        class="mb-4"
+      ></p-dropdown>
+      <mat-form-field class="form-input">
+        <mat-label>Nome desenvolvedora</mat-label>
+        <input matInput formControlName="nome" />
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>Porte</mat-label>
+        <input matInput formControlName="porte" />
+      </mat-form-field>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="mt-3 w-100"
+      >
+        Confirmar
+      </button>
+    </form>
+
+    <form
+      [formGroup]="formBuscar"
+      (ngSubmit)="buscar()"
+      class="d-flex flex-column align-items-center"
+    >
+      <h1 class="form-title">Buscar</h1>
+      <mat-form-field class="form-input">
+        <mat-label>ID da desenvolvedora</mat-label>
+        <input matInput formControlName="desenvolvedoraId" />
+      </mat-form-field>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="mt-3 w-100"
+      >
+        Confirmar
+      </button>
+    </form>
+
+    <form
+      [formGroup]="formExcluir"
+      (ngSubmit)="excluir()"
+      class="d-flex flex-column align-items-center"
+    >
+      <h1 class="form-title">Excluir</h1>
+      <p-dropdown
+        formControlName="selectExcluir"
+        [options]="desenvolvedoras"
+        optionLabel="nome"
+        matInput
+        class="mb-4"
+      ></p-dropdown>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="mt-3 w-100"
+      >
+        Confirmar
+      </button>
+    </form>
+  </div>
 </div>
