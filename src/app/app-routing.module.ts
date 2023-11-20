@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
+import { JogoComponent } from './pages/jogo/jogo.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'desenvolvedora', component: DesenvolvedoraComponent },
   { path: 'categoria', component: CategoriaComponent },
+  { path: 'jogo', component: JogoComponent },
 ];
 
 @NgModule({

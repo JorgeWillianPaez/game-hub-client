@@ -60,7 +60,7 @@ export class DesenvolvedoraComponent {
         } else {
           this.messageService.add({
             severity: 'error',
-            summary: 'Erro ao criar usuário',
+            summary: 'Erro ao criar desenvolvedora',
           });
         }
       }
