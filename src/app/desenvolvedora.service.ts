@@ -8,7 +8,7 @@ const httpOptions = {
   }),
 };
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DesenvolvedoraService {
   apiUrl = 'http://localhost:5000/gamehubapi/Desenvolvedora';
@@ -28,5 +28,9 @@ export class DesenvolvedoraService {
   alterar(usuario: Desenvolvedora): Observable<any> {
     const url = `${this.apiUrl}`;
     return this.http.put<any>(url, usuario, httpOptions);
+  }
+  excluir(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<any>(url, httpOptions);
   }
 }

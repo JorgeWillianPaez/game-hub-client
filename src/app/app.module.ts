@@ -39,6 +39,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.component';
 import { ToastModule } from 'primeng/toast';
+import { MatOptionModule } from '@angular/material/core';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,9 @@ import { ToastModule } from 'primeng/toast';
     MatInputModule,
     ReactiveFormsModule,
     ToastModule,
+    CommonModule,
+    MatOptionModule,
+    DropdownModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
