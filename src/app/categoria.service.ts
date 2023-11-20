@@ -29,4 +29,8 @@ export class CategoriaService {
     const url = `${this.apiUrl}`;
     return this.http.put<any>(url, usuario, httpOptions);
   }
+  excluir(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<any>(url, httpOptions);
+  }
 }

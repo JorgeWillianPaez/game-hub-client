@@ -12,26 +12,104 @@ import { MessageService } from 'primeng/api';
   providers: [MessageService],
 })
 export class CategoriaComponent {
-  formulario: any;
-  constructor(private categoriaService: CategoriaService) {}
+  formCadastrar: any;
+  formAlterar: any;
+  formExcluir: any;
+  formBuscar: any;
+  categorias: Categoria[] = [];
+  categoriaSelecionada: Categoria = {};
+  constructor(
+    private categoriaService: CategoriaService,
+    private messageService: MessageService
+  ) {}
   ngOnInit(): void {
-    this.formulario = new FormGroup({
+    this.formCadastrar = new FormGroup({
       nome: new FormControl(null),
       descricao: new FormControl(null),
     });
+    this.formAlterar = new FormGroup({
+      selectAlterar: new FormControl(null),
+      nome: new FormControl(null),
+      descricao: new FormControl(null),
+    });
+    this.formExcluir = new FormGroup({
+      selectExcluir: new FormControl(null),
+    }),
+    this.formBuscar = new FormGroup({
+      categoriaId: new FormControl(null),
+    })
+    this.listar();
   }
 
-  cadastro() {
-    const categoria: Categoria = this.formulario.value;
-    const observer: Observer<Categoria> = {
-      next(_result): void {
-        alert('Categoria criada com sucesso.');
+  cadastro(): void {
+    const categoria: Categoria = this.formCadastrar.value;
+    this.categoriaService.cadastrar(categoria).subscribe(
+      () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Categoria criada com sucesso!',
+        });
+        this.listar();
       },
-      error(_error): void {
-        alert('Erro ao salvar!');
+      (err) => {
+        if (err.status == 409) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Categoria já cadastrada',
+          })
+        } else {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Erro ao criar categoria',
+          })
+        }
+      }
+    );
+  }
+
+  listar(): void {
+    this.categoriaService.listar().subscribe((res) => {
+      this.categorias = res;
+    });
+  }
+
+  excluir(): void {
+    const categoria: Categoria = this.formExcluir.value.selectExcluir;
+    this.categoriaService.excluir(categoria.id!).subscribe(
+      () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Categoria excluída com sucesso!',
+        });
+        this.listar();
       },
-      complete(): void {},
-    };
-    this.categoriaService.cadastrar(categoria).subscribe(observer);
+      (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro ao excluir desenvolvedora',
+        });
+      }
+    );
+  }
+
+  alterar(): void {}
+
+  buscar(): void {
+    const categoriaId: number = this.formBuscar.value.categoriaId;
+    this.categoriaService.buscar(categoriaId).subscribe(
+      (res) => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Categoria encontrada!',
+        });
+        this.categoriaSelecionada = res;
+      },
+      (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro ao buscar categoria!',
+        });
+      }
+    );
   }
 }
