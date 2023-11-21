@@ -11,6 +11,7 @@ import { DesenvolvedoraComponent } from './pages/desenvolvedora/desenvolvedora.c
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { JogoComponent } from './pages/jogo/jogo.component';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
+import { ModalCriarNoticiaComponent } from './components/modal-criar-noticia/modal-criar-noticia.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -26,7 +27,11 @@ const routes: Routes = [
   { path: 'desenvolvedora', component: DesenvolvedoraComponent },
   { path: 'categoria', component: CategoriaComponent },
   { path: 'jogo', component: JogoComponent },
-  { path: 'noticias', component: NoticiasComponent },
+  {
+    path: 'noticias',
+    component: NoticiasComponent,
+    children: [{ path: '', component: ModalCriarNoticiaComponent }],
+  },
 ];
 
 @NgModule({

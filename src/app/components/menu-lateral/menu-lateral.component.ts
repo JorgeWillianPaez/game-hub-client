@@ -16,7 +16,7 @@ export class MenuLateralComponent {
   });
   logado: any = null;
   ngOnInit(): void {
-    this.logado = localStorage.getItem('logado');
+    this.logado = localStorage.getItem('usuarioId');
   }
 
   logout(): void {

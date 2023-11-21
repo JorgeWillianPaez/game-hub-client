@@ -3,7 +3,6 @@ import { MessageService } from 'primeng/api';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Usuario } from 'src/app/models/Usuario';
 import { UsuarioService } from 'src/app/usuario.service';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,8 +19,8 @@ export class LoginComponent {
     private router: Router
   ) {}
   ngOnInit(): void {
-    const logado = localStorage.getItem('logado');
-    if (logado == 'sim') {
+    const logado = localStorage.getItem('usuarioId');
+    if (logado) {
       this.router.navigate(['/home']);
     }
 
@@ -38,8 +37,8 @@ export class LoginComponent {
     usuario.senha = this.formLogin.value.senha;
 
     this.usuarioService.autenticacao(usuario).subscribe(
-      () => {
-        localStorage.setItem('logado', 'sim');
+      (res) => {
+        localStorage.setItem('usuarioId', res.id);
         this.messageService.add({
           severity: 'success',
           summary: 'Login realizado com sucesso!',
