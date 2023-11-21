@@ -16,6 +16,7 @@ export class CadastroComponent {
     private usuarioService: UsuarioService,
     private messageService: MessageService
   ) {}
+
   ngOnInit(): void {
     this.formulario = new FormGroup({
       nomeUsuario: new FormControl(null),
