@@ -3,8 +3,16 @@
     GameHUB
   </h1>
   <a class="bg-white nav-item" mat-list-item routerLink="/home">Home</a>
-  <a class="bg-white nav-item" mat-list-item routerLink="/cadastro">Cadastro</a>
-  <a class="bg-white nav-item" mat-list-item routerLink="/login">Login</a>
+  <a
+    *ngIf="!logado"
+    class="bg-white nav-item"
+    mat-list-item
+    routerLink="/cadastro"
+    >Cadastro</a
+  >
+  <a *ngIf="!logado" class="bg-white nav-item" mat-list-item routerLink="/login"
+    >Login</a
+  >
   <a class="bg-white nav-item" mat-list-item routerLink="/jogo">Jogo</a>
   <a class="bg-white nav-item" mat-list-item routerLink="/biblioteca"
     >Biblioteca</a
@@ -19,4 +27,12 @@
     >Promoções</a
   >
   <a class="bg-white nav-item" mat-list-item routerLink="/noticias">Notícias</a>
+  <button
+    *ngIf="logado"
+    (click)="logout()"
+    class="bg-white nav-item"
+    mat-list-item
+  >
+    Logout
+  </button>
 </mat-nav-list>

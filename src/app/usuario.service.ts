@@ -29,4 +29,8 @@ export class UsuarioService {
     const url = `${this.apiUrl}`;
     return this.http.put<any>(url, usuario, httpOptions);
   }
+  autenticacao(usuario: Usuario): Observable<any> {
+    const url = `${this.apiUrl}/autenticacao`;
+    return this.http.post<any>(url, usuario, httpOptions);
+  }
 }
