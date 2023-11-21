@@ -29,26 +29,33 @@ export class CadastroComponent {
   cadastro() {
     const usuario: Usuario = this.formulario.value;
 
-    this.usuarioService.cadastrar(usuario).subscribe(
-      () => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Usuário criado com sucesso',
-        });
-      },
-      (err) => {
-        if (err.status == 409) {
+    if (this.formulario.value.senha != this.formulario.value.confirmarSenha) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Senhas não coincidem',
+      });
+    } else {
+      this.usuarioService.cadastrar(usuario).subscribe(
+        () => {
           this.messageService.add({
-            severity: 'error',
-            summary: 'Usuário ou e-mail já existe',
+            severity: 'success',
+            summary: 'Usuário criado com sucesso',
           });
-        } else {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Erro ao criar usuário',
-          });
+        },
+        (err) => {
+          if (err.status == 409) {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Usuário ou e-mail já existe',
+            });
+          } else {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Erro ao criar usuário',
+            });
+          }
         }
-      }
-    );
+      );
+    }
   }
 }
