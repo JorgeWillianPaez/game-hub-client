@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Desenvolvedora } from 'src/app/models/Desenvolvedora';
-import { Observer } from 'rxjs';
 import { DesenvolvedoraService } from 'src/app/desenvolvedora.service';
 import { MessageService } from 'primeng/api';
+import { CategoriaService } from 'src/app/categoria.service';
 
 @Component({
   selector: 'app-desenvolvedora',
@@ -30,6 +30,7 @@ export class DesenvolvedoraComponent {
     this.formCadastrar = new FormGroup({
       nome: new FormControl(null),
       porte: new FormControl(null),
+      categorias: new FormControl(null),
     });
     this.formAlterar = new FormGroup({
       selectAlterar: new FormControl(null),
@@ -46,15 +47,15 @@ export class DesenvolvedoraComponent {
   }
 
   onChange(event: any): void {
-    this.desenvolvedoraService.buscar(this.formAlterar.value.selectAlterar.id).subscribe(
-      (res) => {
+    this.desenvolvedoraService
+      .buscar(this.formAlterar.value.selectAlterar.id)
+      .subscribe((res) => {
         this.desenvolvedoraSelecionadaAlterada = res;
         this.formAlterar.patchValue({
           nome: this.desenvolvedoraSelecionadaAlterada.nome,
           porte: this.desenvolvedoraSelecionadaAlterada.porte,
-       });
-      }
-    )
+        });
+      });
   }
 
   cadastro(): void {
@@ -141,7 +142,7 @@ export class DesenvolvedoraComponent {
         });
         this.desenvolvedoraSelecionada = res;
       },
-      (err) => {
+      () => {
         this.messageService.add({
           severity: 'error',
           summary: 'Erro ao buscar desenvolvedora!',

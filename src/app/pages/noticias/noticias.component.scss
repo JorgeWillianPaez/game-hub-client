@@ -1,0 +1,21 @@
+.mat-mdc-fab {
+  position: fixed;
+  bottom: 1%;
+  right: 1%;
+}
+
+.content {
+  width: 80%;
+  position: absolute;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  left: 200px;
+}
+
+.example-card {
+  width: 400px;
+  margin: 1rem;
+}

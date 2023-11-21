@@ -43,6 +43,8 @@ import { MatOptionModule } from '@angular/material/core';
 import { DropdownModule } from 'primeng/dropdown';
 import { JogoComponent } from './pages/jogo/jogo.component';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
+import { ModalCriarNoticiaComponent } from './components/modal-criar-noticia/modal-criar-noticia.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { NoticiasComponent } from './pages/noticias/noticias.component';
     DesenvolvedoraComponent,
     JogoComponent,
     NoticiasComponent,
+    ModalCriarNoticiaComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,8 +98,9 @@ import { NoticiasComponent } from './pages/noticias/noticias.component';
     CommonModule,
     MatOptionModule,
     DropdownModule,
+    MatDialogModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

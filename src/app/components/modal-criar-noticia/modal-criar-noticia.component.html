@@ -1,0 +1,44 @@
+<div class="col p-4">
+  <p-toast></p-toast>
+  <div mat-dialog-title>
+    <button mat-button mat-dialog-close class="btn-fechar">
+      <mat-icon class="material-symbols-outlined">close</mat-icon>
+    </button>
+  </div>
+  <mat-dialog-content>
+    <form
+      [formGroup]="formCadastrar"
+      (ngSubmit)="cadastro()"
+      class="d-flex flex-column align-items-center"
+    >
+      <h1 class="form-title">Cadastrar</h1>
+      <mat-form-field class="form-input">
+        <mat-label>Titulo Notícia</mat-label>
+        <input matInput formControlName="titulo" />
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="descricao" />
+      </mat-form-field>
+      <p-dropdown
+        formControlName="categorias"
+        [options]="categorias"
+        optionLabel="nome"
+        matInput
+        class="mb-4"
+        placeholder="Selecione a categoria"
+      ></p-dropdown>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      class="mt-3 w-100"
+      (click)="cadastro()"
+    >
+      Confirmar
+    </button>
+  </mat-dialog-actions>
+</div>

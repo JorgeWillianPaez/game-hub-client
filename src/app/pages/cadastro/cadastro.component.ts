@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Usuario } from 'src/app/models/Usuario';
 import { UsuarioService } from 'src/app/usuario.service';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -14,7 +15,8 @@ export class CadastroComponent {
   formulario: any;
   constructor(
     private usuarioService: UsuarioService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,10 +40,7 @@ export class CadastroComponent {
     } else {
       this.usuarioService.cadastrar(usuario).subscribe(
         () => {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Usuário criado com sucesso',
-          });
+          this.router.navigate(['/login']);
         },
         (err) => {
           if (err.status == 409) {
