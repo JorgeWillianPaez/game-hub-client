@@ -50,6 +50,8 @@ export class DesenvolvedoraComponent {
           summary: 'Desenvolvedora criada com sucesso!',
         });
         this.listar();
+
+        console.log("salvou")
       },
       (err) => {
         if (err.status == 409) {
