@@ -16,7 +16,7 @@
         >
           <div class="mb-3">
             <img
-              src="{{ product.image }}"
+              src="{{ product.imagem }}"
               [alt]="product.name"
               class="w-6 shadow-2 w-100"
               style="cursor: pointer"
@@ -46,7 +46,7 @@
         >
           <div class="mb-3">
             <img
-              src="{{ product.image }}"
+              src="{{ product.imagem }}"
               [alt]="product.name"
               class="w-6 shadow-2 w-100"
               style="cursor: pointer"
@@ -70,15 +70,23 @@
   >
     <img
       style="width: 100%; margin: 0 auto"
-      src="{{ currentGame.image }}"
+      src="{{ currentGame.imagem }}"
       alt="{{ currentGame.nome }}"
       class="mb-4"
     />
-    <p class="m-0">
+    <p class="m-0 mb-4">
       {{ currentGame.descricao }}
     </p>
-    <button class="mt-3" mat-raised-button color="primary">
+    <button
+      *ngIf="logado"
+      mat-raised-button
+      (click)="adicionarJogo()"
+      color="primary"
+    >
       Adicionar na biblioteca
     </button>
+    <a *ngIf="!logado" routerLink="/login">
+      Faça login para adicionar esse jogo na biblioteca
+    </a>
   </p-dialog>
 </div>

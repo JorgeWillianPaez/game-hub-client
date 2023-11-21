@@ -4,6 +4,8 @@ import { Usuario } from 'src/app/models/Usuario';
 import { UsuarioService } from 'src/app/usuario.service';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import { Biblioteca } from 'src/app/models/Biblioteca';
+import { BibliotecaService } from 'src/app/biblioteca.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,7 +18,8 @@ export class CadastroComponent {
   constructor(
     private usuarioService: UsuarioService,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private bibliotecaService: BibliotecaService
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +29,18 @@ export class CadastroComponent {
       dataNascimento: new FormControl(null),
       senha: new FormControl(null),
       confirmarSenha: new FormControl(null),
+    });
+  }
+
+  criarBibliotecaPadrao(id: number): void {
+    const biblioteca: Biblioteca = {
+      nome: 'Biblioteca padrão',
+      descricao: 'Biblioteca padrão',
+      usuarioId: id,
+    };
+
+    this.bibliotecaService.cadastrar(biblioteca).subscribe(() => {
+      this.router.navigate(['/login']);
     });
   }
 
@@ -39,8 +54,8 @@ export class CadastroComponent {
       });
     } else {
       this.usuarioService.cadastrar(usuario).subscribe(
-        () => {
-          this.router.navigate(['/login']);
+        (res) => {
+          this.criarBibliotecaPadrao(res.id);
         },
         (err) => {
           if (err.status == 409) {

@@ -1,33 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Jogo } from './models/Jogo';
+import { Biblioteca } from './models/Biblioteca';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
   }),
 };
+
 @Injectable({
   providedIn: 'root',
 })
-export class JogoService {
-  apiUrl = 'http://localhost:5000/gamehubapi/Jogo';
+export class BibliotecaService {
+  apiUrl = 'http://localhost:5000/gamehubapi/Biblioteca';
   constructor(private http: HttpClient) {}
-  listar(): Observable<Jogo[]> {
+  listar(): Observable<Biblioteca[]> {
     const url = `${this.apiUrl}`;
-    return this.http.get<Jogo[]>(url);
+    return this.http.get<Biblioteca[]>(url);
   }
-  buscar(id: number): Observable<Jogo> {
+  buscar(id: number): Observable<Biblioteca> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.get<Jogo>(url);
+    return this.http.get<Biblioteca>(url);
   }
-  cadastrar(jogo: Jogo): Observable<any> {
+  cadastrar(biblioteca: Biblioteca): Observable<any> {
     const url = `${this.apiUrl}`;
-    return this.http.post<any>(url, jogo, httpOptions);
+    return this.http.post<any>(url, biblioteca, httpOptions);
   }
-  alterar(jogo: Jogo): Observable<any> {
+  alterar(biblioteca: Biblioteca): Observable<any> {
     const url = `${this.apiUrl}`;
-    return this.http.put<any>(url, jogo, httpOptions);
+    return this.http.put<any>(url, biblioteca, httpOptions);
   }
   excluir(id: number): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
