@@ -21,13 +21,13 @@ export class DesenvolvedoraService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Desenvolvedora>(url);
   }
-  cadastrar(usuario: Desenvolvedora): Observable<any> {
+  cadastrar(desenvolvedora: Desenvolvedora): Observable<any> {
     const url = `${this.apiUrl}`;
-    return this.http.post<any>(url, usuario, httpOptions);
+    return this.http.post<any>(url, desenvolvedora, httpOptions);
   }
-  alterar(usuario: Desenvolvedora): Observable<any> {
+  alterar(desenvolvedora: Desenvolvedora): Observable<any> {
     const url = `${this.apiUrl}`;
-    return this.http.put<any>(url, usuario, httpOptions);
+    return this.http.put<any>(url, desenvolvedora, httpOptions);
   }
   excluir(id: number): Observable<any> {
     const url = `${this.apiUrl}/${id}`;

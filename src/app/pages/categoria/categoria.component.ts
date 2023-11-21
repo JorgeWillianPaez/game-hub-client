@@ -17,7 +17,11 @@ export class CategoriaComponent {
   formExcluir: any;
   formBuscar: any;
   categorias: Categoria[] = [];
-  categoriaSelecionada: Categoria = {};
+  categoriaSelecionada: Categoria = {
+    nome: 'Nome da categoria',
+    descricao: 'Descrição',
+  };
+  categoriaSelecionadaAlterada: Categoria = {};
   constructor(
     private categoriaService: CategoriaService,
     private messageService: MessageService
@@ -39,6 +43,18 @@ export class CategoriaComponent {
       categoriaId: new FormControl(null),
     })
     this.listar();
+  }
+
+  onChange(event: any): void {
+    this.categoriaService.buscar(this.formAlterar.value.selectAlterar.id).subscribe(
+      (res) => {
+        this.categoriaSelecionadaAlterada = res;
+        this.formAlterar.patchValue({
+          nome: this.categoriaSelecionadaAlterada.nome,
+          descricao: this.categoriaSelecionadaAlterada.descricao,
+        })
+      }
+    )
   }
 
   cadastro(): void {
@@ -92,7 +108,28 @@ export class CategoriaComponent {
     );
   }
 
-  alterar(): void {}
+  alterar(): void {
+    const categoria: Categoria = {
+      id: this.formAlterar.value.selectAlterar.id,
+      nome: this.formAlterar.value.nome,
+      descricao: this.formAlterar.value.descricao,
+    };
+    this.categoriaService.alterar(categoria).subscribe(
+      () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Categoria alterada com sucesso!',
+        });
+        this.listar();
+      },
+      (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro ao alterar categoria',
+        });
+      }
+    )
+  }
 
   buscar(): void {
     const categoriaId: number = this.formBuscar.value.categoriaId;

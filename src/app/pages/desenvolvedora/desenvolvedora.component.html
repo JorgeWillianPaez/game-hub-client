@@ -35,6 +35,7 @@
       <p-dropdown
         formControlName="selectAlterar"
         [options]="desenvolvedoras"
+        (onChange)="onChange($event)"
         optionLabel="nome"
         matInput
         class="mb-4"
@@ -67,6 +68,14 @@
       <mat-form-field class="form-input">
         <mat-label>ID da desenvolvedora</mat-label>
         <input matInput formControlName="desenvolvedoraId" />
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <input [value]="desenvolvedoraSelecionada.nome" 
+        readonly matInput formControlName="nome" />
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <input [value]="desenvolvedoraSelecionada.porte" 
+        readonly matInput formControlName="porte" />
       </mat-form-field>
       <button
         type="submit"

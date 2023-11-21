@@ -17,7 +17,11 @@ export class DesenvolvedoraComponent {
   formExcluir: any;
   formBuscar: any;
   desenvolvedoras: Desenvolvedora[] = [];
-  desenvolvedoraSelecionada: Desenvolvedora = {};
+  desenvolvedoraSelecionada: Desenvolvedora = {
+    nome: 'Nome da Desenvolvedora',
+    porte: 'Porte',
+  };
+  desenvolvedoraSelecionadaAlterada: Desenvolvedora = {};
   constructor(
     private desenvolvedoraService: DesenvolvedoraService,
     private messageService: MessageService
@@ -39,6 +43,18 @@ export class DesenvolvedoraComponent {
       desenvolvedoraId: new FormControl(null),
     });
     this.listar();
+  }
+
+  onChange(event: any): void {
+    this.desenvolvedoraService.buscar(this.formAlterar.value.selectAlterar.id).subscribe(
+      (res) => {
+        this.desenvolvedoraSelecionadaAlterada = res;
+        this.formAlterar.patchValue({
+          nome: this.desenvolvedoraSelecionadaAlterada.nome,
+          porte: this.desenvolvedoraSelecionadaAlterada.porte,
+       });
+      }
+    )
   }
 
   cadastro(): void {
@@ -92,7 +108,28 @@ export class DesenvolvedoraComponent {
     );
   }
 
-  alterar(): void {}
+  alterar(): void {
+    const desenvolvedora: Desenvolvedora = {
+      id: this.formAlterar.value.selectAlterar.id,
+      nome: this.formAlterar.value.nome,
+      porte: this.formAlterar.value.porte,
+    };
+    this.desenvolvedoraService.alterar(desenvolvedora).subscribe(
+      () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Desenvolvedora alterada com sucesso!',
+        });
+        this.listar();
+      },
+      (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro ao alterar desenvolvedora',
+        });
+      }
+    );
+  }
 
   buscar(): void {
     const desenvolvedoraId: number = this.formBuscar.value.desenvolvedoraId;
