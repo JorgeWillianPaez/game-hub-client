@@ -21,13 +21,13 @@ export class CategoriaService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Categoria>(url);
   }
-  cadastrar(usuario: Categoria): Observable<any> {
+  cadastrar(categoria: Categoria): Observable<any> {
     const url = `${this.apiUrl}`;
-    return this.http.post<any>(url, usuario, httpOptions);
+    return this.http.post<any>(url, categoria, httpOptions);
   }
-  alterar(usuario: Categoria): Observable<any> {
+  alterar(categoria: Categoria): Observable<any> {
     const url = `${this.apiUrl}`;
-    return this.http.put<any>(url, usuario, httpOptions);
+    return this.http.put<any>(url, categoria, httpOptions);
   }
   excluir(id: number): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
