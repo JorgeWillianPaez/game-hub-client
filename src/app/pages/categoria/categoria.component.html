@@ -2,17 +2,17 @@
 <div class="main-container">
   <p-toast></p-toast>
   <div class="content">
-    <form 
+    <form
       [formGroup]="formCadastrar"
       (ngSubmit)="cadastro()"
       class="d-flex flex-column align-items-center"
     >
       <h1 class="form-title">Cadastrar</h1>
-      <mat-form-field class="form-imput">
+      <mat-form-field class="form-input">
         <mat-label>Nome da categoria</mat-label>
         <input matInput formControlName="nome" />
       </mat-form-field>
-      <mat-form-field class="form-imput">
+      <mat-form-field class="form-input">
         <mat-label>Descrição</mat-label>
         <input matInput formControlName="descricao" />
       </mat-form-field>
@@ -25,7 +25,7 @@
         Confirmar
       </button>
     </form>
-    <form 
+    <form
       [formGroup]="formAlterar"
       (ngSubmit)="alterar()"
       class="d-flex flex-column align-items-center"
@@ -40,11 +40,11 @@
         class="mb-4"
         placeholder="Selecione a categoria"
       ></p-dropdown>
-      <mat-form-field class="form-imput">
+      <mat-form-field class="form-input">
         <mat-label>Nome da categoria</mat-label>
         <input matInput formControlName="nome" />
       </mat-form-field>
-      <mat-form-field class="form-imput">
+      <mat-form-field class="form-input">
         <mat-label>Descrição</mat-label>
         <input matInput formControlName="descricao" />
       </mat-form-field>
@@ -57,23 +57,31 @@
         Confirmar
       </button>
     </form>
-    <form 
+    <form
       [formGroup]="formBuscar"
       (ngSubmit)="buscar()"
       class="d-flex flex-column align-items-center"
     >
       <h1 class="form-title">Buscar</h1>
-      <mat-form-field class="form-imput">
+      <mat-form-field class="form-input">
         <mat-label>ID da categoria</mat-label>
         <input matInput formControlName="categoriaId" />
       </mat-form-field>
       <mat-form-field class="form-input">
-        <input [value]="categoriaSelecionada.nome" 
-        readonly matInput formControlName="nome" />
+        <input
+          [value]="categoriaSelecionada.nome"
+          readonly
+          matInput
+          formControlName="nome"
+        />
       </mat-form-field>
       <mat-form-field class="form-input">
-        <input [value]="categoriaSelecionada.descricao" 
-        readonly matInput formControlName="porte" />
+        <input
+          [value]="categoriaSelecionada.descricao"
+          readonly
+          matInput
+          formControlName="porte"
+        />
       </mat-form-field>
       <button
         type="submit"
@@ -84,7 +92,7 @@
         Confirmar
       </button>
     </form>
-    <form 
+    <form
       [formGroup]="formExcluir"
       (ngSubmit)="excluir()"
       class="d-flex flex-column align-items-center"
