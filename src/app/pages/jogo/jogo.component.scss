@@ -27,7 +27,7 @@
 }
 
 .form-input {
-  width: 400px;
+  width: 100%;
 }
 
 .form-title {
@@ -36,4 +36,8 @@
   text-align: center;
   margin-top: 20px;
   margin-bottom: 30px;
+}
+
+.select {
+  width: 100%;
 }
